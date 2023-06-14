@@ -1,23 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import { Routes, Route, Link } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
+import SearchForm from './components/SearchForm';
+import Planet from './pages/Planet';
+import People from './pages/People';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SearchForm />
+      {/* <div>
+        <p style={{ color: "red" }}>{numberErr}</p>
+      </div> */}
+      <Routes>
+        <Route path="/people/:id" element={<People />}></Route>
+        <Route path="/planets/:id" element={<Planet />}></Route>
+      </Routes>
+
     </div>
   );
 }
